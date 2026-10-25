@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#0f1114;--panel:#171a1f;--panel2:#1d2127;--line:#292e36;--ice:#e9eef4;--mute:#b5bec9;--red:#e5322d;--amber:#f2a93b;--ok:#4cc38a;--chrome:#0b0d0f;--stripe1:#101215;--stripe2:#0d0f12;--field:#d3dbe4;font-family:Barlow,sans-serif;color:var(--ice);background:var(--bg)}
+:root{--bg:#0f1114;--panel:#171a1f;--panel2:#1d2127;--line:#292e36;--ice:#e9eef4;--mute:#8d97a3;--red:#e5322d;--amber:#f2a93b;--ok:#4cc38a;--chrome:#0b0d0f;--stripe1:#101215;--stripe2:#0d0f12;--field:#b8c1cc;font-family:Barlow,sans-serif;color:var(--ice);background:var(--bg)}
 :root[data-theme=light]{--bg:#f4f6f8;--panel:#fff;--panel2:#e9edf2;--line:#d2d8e0;--ice:#202832;--mute:#626d79;--chrome:#fff;--stripe1:#f5f7fa;--stripe2:#edf0f4;--field:#424d59}
 *{box-sizing:border-box}
 body{margin:0;min-width:320px;min-height:100vh;background:repeating-linear-gradient(45deg,var(--stripe1) 0 2px,var(--stripe2) 2px 4px)}
@@ -51,8 +51,6 @@ select.btn{padding:0 8px}
 .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.95) saturate(.45)}
 :root[data-theme=light] .leaflet-tile-pane{filter:none}
 .leaflet-control-attribution{font-size:10px!important}
-:root:not([data-theme=light]) .leaflet-control-attribution{color:var(--ice);background:var(--panel)}
-:root:not([data-theme=light]) .leaflet-control-attribution a{color:#9ddcff}
 .map-search{position:absolute;z-index:500;top:14px;left:14px;width:min(330px,calc(100% - 28px));display:flex;background:var(--panel);border:1px solid var(--line)}
 .map-search input{width:100%;height:40px;padding:0 12px;border:0;background:none;outline:0;font-size:13px}
 .map-search input:focus-visible{outline:2px solid var(--amber)}
@@ -68,7 +66,6 @@ select.btn{padding:0 8px}
 .details{padding:18px;border-left:1px solid var(--line);overflow-y:auto;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
 .dh{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .dh h2{font-size:19px}.plate{display:inline-block;margin-top:5px;padding:2px 10px;border:2px solid #cfd6de;border-top:6px solid #2a5db8;border-radius:3px;background:#f3f5f7;color:#14181d;font:700 14px "Chakra Petch";letter-spacing:.12em}
-:root:not([data-theme=light]) .plate{border-color:var(--mute);background:var(--panel2);color:var(--ice)}
 .status{padding:5px 9px;font-size:12px;font-weight:600;background:#2a1311;color:#ff8a85;white-space:nowrap}
 .status.ok{background:#12251d;color:var(--ok)}.status.warn{background:#2a2216;color:var(--amber)}.status.off{background:var(--panel2);color:var(--mute)}
 .gauge{background:var(--panel);border:1px solid var(--line);padding:6px 10px 12px;text-align:center}
@@ -377,7 +374,7 @@ function checkRules(){
 }
 
 /* ---------- interface ---------- */
-(function(){let h="";for(let v=0;v<=200;v+=20){const a=rad(135+270*v/200),c=Math.cos(a),n=Math.sin(a);h+=`<line x1="${100+c*65}" y1="${100+n*65}" x2="${100+c*71}" y2="${100+n*71}" stroke="#4a5666" stroke-width="2"/><text x="${100+c*54}" y="${100+n*54+3}" text-anchor="middle" font-size="9" fill="var(--mute)">${v}</text>`}$("ticks").innerHTML=h})();
+(function(){let h="";for(let v=0;v<=200;v+=20){const a=rad(135+270*v/200),c=Math.cos(a),n=Math.sin(a);h+=`<line x1="${100+c*65}" y1="${100+n*65}" x2="${100+c*71}" y2="${100+n*71}" stroke="#4a5666" stroke-width="2"/><text x="${100+c*54}" y="${100+n*54+3}" text-anchor="middle" font-size="9" fill="#8d97a3">${v}</text>`}$("ticks").innerHTML=h})();
 const cardinal=h=>["N","NE","L","SE","S","SO","O","NO"][Math.round(h/45)%8];
 const ago=ms=>{const t=Math.floor(ms/1000);return t<5?"Agora":t<60?`Há ${t} s`:`Há ${Math.floor(t/60)} min`};
 function render(){
